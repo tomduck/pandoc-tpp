@@ -24,7 +24,7 @@ The `$include(path)$` statement is used in a pandoc template to read the content
 Usage
 -----
 
-Suppose we have a template `templates.default.html` that includes other templates.
+Suppose we have a template `templates/default.html` that includes other templates.
 
 Standard application of pandoc-tpp to the template results in output to stdout; e.g.,
 
