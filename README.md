@@ -18,7 +18,7 @@ I am pleased to receive bug reports and feature requests on the project's [Issue
 Syntax
 ------
 
-The `$include(path)$` statement reads the contents at `path` into a pandoc template.  The contents of `path` are scanned for additional `$include(...)$` statements.
+The `$include(path)$` statement inserts the contents at `path` into a pandoc template.  The contents of `path` are scanned for additional `$include(...)$` statements.
 
 
 Usage
