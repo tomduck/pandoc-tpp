@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+
+<html$if(lang)$ lang="$lang$"$endif$>
+
+<head>
+$include(head.html5)$
+</head>
+
+<body>
+  $body$
+</body>
+    
+</html>
