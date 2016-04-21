@@ -6,31 +6,39 @@ pandoc-tpp 0.1
 
 Pandoc templates lack an `$include(path)$` statement.  This script provides one.
 
-Usage and installation are straight-forward.  I am pleased to receive bug reports and feature requests on the project's [Issues tracker].
+A demonstration can be found in the [`demo/`] directory.  Run `make` to generate `out/demo.html` from `demo.md` using the nested templates in `templates/`.
+
+I am pleased to receive bug reports and feature requests on the project's [Issues tracker].
+
+[pandoc]: http://pandoc.org/
+[`demo/`]: demo/
+[Issues tracker]: https://github.com/tomduck/pandoc-tpp/issues
+
+
+Syntax
+------
+
+The `$include(path)$` statement is used in a pandoc template to read the contents at `path` into the template.  The contents of `path` are also scanned for `$include(...)$` statements.
 
 
 Usage
 -----
 
-Applying pandoc-tpp to a template results in output to stdout; e.g.,
+Suppose we have a template `templates.default.html` that includes other templates.
+
+Standard application of pandoc-tpp to the template results in output to stdout; e.g.,
 
     pandoc-tpp templates/default.html
 
-This can be redirected to a file.
+The output can be redirected to a file.
 
-Alternatively, you can make the preprocessed template available directly to pandoc (via a tempfile) as follows:
+Alternatively, we can make the preprocessed template available directly to pandoc (via a tempfile) as follows:
 
     pandoc demo.md -o demo.html --template $(pandoc-tpp -t templates/default.html5)
 
 In a Makefile, use this instead:
 
     pandoc demo.md -o demo.html --template $(shell pandoc-tpp -t templates/default.html5)
-
-A demonstration can be found in the [`demo/`] directory.  Run `make` to generate `out/demo.html` from `demo.md` using the templates in `templates/`.
-
-[pandoc]: http://pandoc.org/
-[`demo/`]: demo/
-[Issues tracker]: https://github.com/tomduck/pandoc-tpp/issues
 
 
 Installation
